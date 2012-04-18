@@ -1,0 +1,135 @@
+<div style='padding-top:10px;' class="sort-pages modify-pages">
+	
+	#* Build First Level of Navigation *#
+	
+	<ul id="navigation">
+		
+		 #* IF user is in the Organization itself, Show the Home Tab *#
+				
+		 #if($isCurrGroupOrg == 'true')
+				
+			<li class="main-nav $nav_item_class">		
+				<a id='main-nav-anchor' href="$company_url">Home</a>			
+			</li>
+		#end
+				
+		
+		#foreach ($nav_item in $nav_items)
+			#if ($nav_item.isSelected())
+				#set ($nav_item_class = "selected")
+			#else
+				#set ($nav_item_class = "")
+			#end
+
+			<li class="main-nav $nav_item_class">
+				<a id='main-nav-anchor' href="$nav_item.getURL()" $nav_item.getTarget()>$nav_item.getName()</a>
+			</li>
+		#end
+		
+		#*  Display Organization Pages  *#
+			
+		#if($is_signed_in && ($organizationList.size() > 0))
+					
+			#foreach ($org_item in $organizationList)
+			
+				#set($org_name = $org_item.getOrganizationId())
+				#set ($orgGroup = $groupLocalService.getGroup($company.companyId, "$org_name"))
+				#set ($orgPrivatePages = $layoutlocalService.getLayouts($orgGroup.getGroupId(),true))
+				
+			
+				#* for current org dont display the page of same org again. *#
+				
+				#if($community_name != "$org_item.getName()")
+				
+					#foreach ($orgPrivatePage in $orgPrivatePages)
+					
+						#if ($orgPrivatePage.isSelected())
+							#set ($nav_item_class = "selected")
+						#else
+							#set ($nav_item_class = "")
+						#end
+			
+						<li class="main-nav $nav_item_class">
+							
+							#* Check whether its parent page or child page *#
+							
+							#if($orgPrivatePage.getParentLayoutId() == 0  && !$orgPrivatePage.isHidden())
+							
+								<a id='main-nav-anchor' 
+									href="$orgPrivatePage.getRegularURL($request)" $orgPrivatePage.getTarget()>$orgPrivatePage.getName($locale)</a>
+							#end
+							
+						</li>
+					#end   #* End of Pages in an organization *#
+					
+				#end
+					
+			#end  #*  End of Organization LIST *#			
+		
+		#end
+			
+	</ul>
+	
+	#* Build the second level navigation. *#
+	
+	#foreach ($sec_nav_item in $nav_items)
+		
+		#set ($isACurrPage = false)
+		
+		#if ($sec_nav_item.hasChildren())
+	
+			 #if ( $sec_nav_item.getName() == "$page.getName($locale)")
+		 		#set ($isACurrPage = true)
+			 #end
+			 
+			 #foreach ($navChild in $sec_nav_item.getChildren())	
+			 	 
+			 	 #set ($isAChildCurrPage = false)
+				 #if ( $navChild.getName() == "$page.getName($locale)")
+					 #set ($isAChildCurrPage = true)
+					 #break
+			 	 #end								
+			 #end
+			 
+			 #if($isACurrPage || $isAChildCurrPage)
+			 
+				 <ul id="secondnavigation">
+					 #foreach ($nav_child in $sec_nav_item.getChildren())
+						    
+						#if ($nav_child.isSelected())
+							#set ($nav_child_class = "selected")
+						#else
+							#set ($nav_child_class = "")
+						#end
+						
+						<li class="main-nav $nav_child_class">
+							<a id='main-nav-anchor' href="$nav_child.getURL()" $nav_child.getTarget()>$nav_child.getName()</a>
+							
+							#* Build 3rd Level Nav *#
+							#if ($nav_child.hasChildren())
+								<ul class="child-menu">
+									#foreach ($nav_childs_child in $nav_child.getChildren())
+									#if ($nav_childs_child.isSelected())
+										#set ($nav_childs_child_class = "selected")
+									#else
+										#set ($nav_childs_child_class = "")
+									#end
+		
+									<li class="$nav_childs_child_class">
+										<a href="$nav_childs_child.getURL()" $nav_childs_child.getTarget()>$nav_childs_child.getName()</a>
+									</li>
+									#end
+								</ul>
+							#end
+							
+						</li>
+									
+					 #end
+				 </ul>
+			 #end
+			
+		#end
+						
+	#end
+
+</div>

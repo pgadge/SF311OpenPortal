@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE layout-templates PUBLIC "-//Liferay//DTD Layout Templates 6.0.0//EN" "http://www.liferay.com/dtd/liferay-layout-templates_6_0_0.dtd">
+
+<layout-templates>
+	<custom>
+		<layout-template id="SignedInPage" name="SignedInPage Layout">
+			<template-path>/SignedInPage.tpl</template-path>
+			<wap-template-path>/SignedInPage.wap.tpl</wap-template-path>
+			<thumbnail-path>/SignedInPage.png</thumbnail-path>
+		</layout-template>
+	</custom>
+</layout-templates>

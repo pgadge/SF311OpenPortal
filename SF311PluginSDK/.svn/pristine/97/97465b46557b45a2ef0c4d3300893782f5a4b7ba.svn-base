@@ -1,0 +1,1 @@
+value.object.listener.com.liferay.portal.model.User = com.sf311.portal.hooks.UserAccountHook

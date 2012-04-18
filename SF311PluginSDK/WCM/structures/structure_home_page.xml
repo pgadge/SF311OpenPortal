@@ -1,0 +1,6 @@
+<root>
+  <dynamic-element name='Image' type='image_gallery' index-type='' repeatable='false'></dynamic-element>
+  <dynamic-element name='LinkText' type='text' index-type='' repeatable='true'>
+    <dynamic-element name='LinkURL' type='text' index-type='' repeatable='false'></dynamic-element>
+  </dynamic-element>
+</root>

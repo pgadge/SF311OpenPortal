@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+
+<portlet-app version="2.0"
+	xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd">
+	<portlet>
+		<portlet-name>loc-search-map</portlet-name>
+		<display-name>Location Search Map</display-name>
+		<portlet-class>com.sf311.portal.mvc.SearchResultPortlet</portlet-class>
+		<init-param>
+			<name>view-jsp</name>
+			<value>/jsp/createsrvreq/PrbSearchForm.jsp</value>
+		</init-param>
+		<init-param>
+			<name>edit-jsp</name>
+			<value>/jsp/createsrvreq/ConfigureGoogleMap.jsp</value>
+		</init-param>
+		<init-param>
+			<name>search-result-jsp</name>
+			<value>/jsp/createsrvreq/PrbSearchResult.jsp</value>
+		</init-param>
+		<init-param>
+			<name>create-srv-req-jsp</name>
+			<value>/jsp/createsrvreq/CreateSrvReqForm.jsp</value>
+		</init-param>
+		<init-param>
+			<name>check-auth-token</name>
+			<value>false</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+			<portlet-mode>edit</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>Location Search Map</title>
+			<short-title>Location Search Map</short-title>
+			<keywords>Location Search Map</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>my-service-requests</portlet-name>
+		<display-name>My Service Requests Portlet</display-name>
+		<portlet-class>com.sf311.portal.mvc.MyServiceRequestsPortlet</portlet-class>
+		<init-param>
+			<name>view-jsp</name>
+			<value>/jsp/mysrvreq/view.jsp</value>
+		</init-param>
+		<init-param>
+			<name>edit-jsp</name>
+			<value>/jsp/mysrvreq/ConfigureWebService.jsp</value>
+		</init-param>
+		<init-param>
+			<name>check-auth-token</name>
+			<value>false</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+			<portlet-mode>edit</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>My Service Requests Portlet</title>
+			<short-title>My Service Requests Portlet</short-title>
+			<keywords>My Service Requests Portlet</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	
+</portlet-app>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+#parse ($init)
+
+<html class="#language("lang.dir")" dir="#language("lang.dir")" lang="$w3c_language_id">
+
+<head>
+	<title>$the_title - $company_name</title>
+
+	$theme.include($top_head_include)
+</head>
+
+<body class="$css_class">
+
+
+#if($is_signed_in)
+	#dockbar()
+#end
+
+<div id="sf_header" class="sf_nav">
+<div class="sf_header_wrap">
+	<div class="sf_header_logo"><a href="http://www.sfgov.org/"><span>SFGOV</span></a></div>
+	<ul class="sf_header_nav">
+		<li><a href="http://www.sfgov.org/" id="Top" name="Top" title="Go To SFGov, the official site for San Francisco">SFGOV</a></li>
+		<li><a href="http://www6.sfgov.org/index.aspx?page=2" title="Residents">Residents</a></li>
+		<li><a href="http://www6.sfgov.org/index.aspx?page=3" title="Business">Business</a></li>
+		<li><a href="http://www6.sfgov.org/index.aspx?page=4" title="Government">Government</a></li>
+		<li><a href="http://www6.sfgov.org/index.aspx?page=5" title="Visitors">Visitors</a></li>
+		<li><a href="http://www6.sfgov.org/index.aspx?page=6" title="Online Services">OnlineServices</a></li>
+		<li><a href="http://www6.sfgov.org/index.aspx?page=44" title="Help">Help</a></li>
+	</ul>
+	<div class="sf_header_end"></div>
+</div>
+</div>
+
+<div id="wrapper">
+
+	<header id="banner" role="banner">
+	<div id="utilContainer">
+			#if($is_signed_in)
+	        	<div>
+	        		Welcome! 
+	        		<a href="$my_account_url">$user_name</a>
+	        		<span>|</span>
+	        		<a href="$sign_out_url">Logout</a>
+	        	</div>	        	   	
+		    #else
+		    	<div>
+	    			Welcome! <a href="$sign_in_url">Sign In</a>   
+	    			
+		    	</div>	
+		   #end
+		
+		</div> 
+		
+		<div id="navigationSearch">
+		     <form action="http://www.google.com/" id="cse-search-box" style="width:195px; padding-right:0;padding-top:0;">		
+				<input type="hidden" name="cx" value="000250196670705970437:vsgncjg968o" /> 
+				<input type="hidden" name="cof" value="FORID:10;NB:1" /> 
+				<input type="hidden" name="ie" value="UTF-8" /> 
+				<table><tr><td>
+				<input type="text" name="q" onblur="if (this.value==''){this.value='Enter keyword'}" value="Enter keyword" onfocus="if (this.value == 'Enter keyword') { this.value=''; }" />&nbsp;&nbsp;
+				</td><td>
+				<input type="submit" id="SearchButton" value="" /> 
+				</td></tr></table>		
+		   </form>
+		</div>
+					
+	
+	</header>
+	#if ($has_navigation)
+			#parse ("$full_templates_path/navigation.vm")
+		#end
+
+	<div id="content">
+
+		#if ($selectable)
+			$theme.include($content_include)
+		#else
+			$portletDisplay.recycle()
+
+			$portletDisplay.setTitle($the_title)
+
+			$theme.wrapPortlet("portlet.vm", $content_include)
+		#end
+	</div>
+
+	<footer id="footer" role="contentinfo">
+		<span><a href="#">Site Help</a></span>
+		<span><a href="#">Accessibility</a></span>
+		<span><a href="#">Translate</a></span>
+		<span><a href="#">Contact Us</a></span>
+	</footer>
+</div>
+
+</body>
+
+$theme.include($bottom_include)
+
+</html>

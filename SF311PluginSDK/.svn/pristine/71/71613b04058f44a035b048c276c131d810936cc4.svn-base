@@ -1,0 +1,20 @@
+<root>
+  <dynamic-element name='Image' type='image_gallery' index-type='' repeatable='false'>
+  <meta-data>
+			<entry name="displayAsTooltip"><![CDATA[false]]></entry>
+			<entry name="required"><![CDATA[false]]></entry>
+			<entry name="instructions"><![CDATA[]]></entry>
+			<entry name="label"><![CDATA[Image]]></entry>
+			<entry name="predefinedValue"><![CDATA[]]></entry>
+		</meta-data>
+</dynamic-element>
+  <dynamic-element name='MouseOverText' type='text' index-type='' repeatable='false'>
+  <meta-data>
+			<entry name="displayAsTooltip"><![CDATA[false]]></entry>
+			<entry name="required"><![CDATA[false]]></entry>
+			<entry name="instructions"><![CDATA[]]></entry>
+			<entry name="label"><![CDATA[Mouse Over Text]]></entry>
+			<entry name="predefinedValue"><![CDATA[]]></entry>
+		</meta-data>
+</dynamic-element>
+</root>

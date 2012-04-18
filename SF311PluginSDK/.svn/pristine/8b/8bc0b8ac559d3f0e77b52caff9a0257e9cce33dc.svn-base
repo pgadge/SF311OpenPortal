@@ -1,0 +1,76 @@
+#*
+This file allows you to override and define new Velocity variables.
+*#
+
+#set ($orgLocalService = $serviceLocator.findService("com.liferay.portal.service.OrganizationLocalService"))
+#set ($organizationList = $orgLocalService.getUserOrganizations($user.getUserId()))
+
+#set ($groupLocalService = $serviceLocator.findService("com.liferay.portal.service.GroupLocalService"))
+
+#set ($layoutlocalService=$serviceLocator.findService("com.liferay.portal.service.LayoutLocalService"))
+
+
+#*  FAQ expand/collapse flag *#
+#set($expandCollapseFlag  = false)
+
+#*  SHOW Search Box *#
+
+#set($searchBoxCommunityList = ["Guest1", "Partners", "abc"])
+
+## Iterate through allowed community list and see whether search is permitted or not.
+
+#set($showSearchBox  = false)
+   
+#foreach ($searchCommunity in $searchBoxCommunityList)
+  #if($community_name == "$searchCommunity")
+	 	#set($showSearchBox  = true)
+  #end
+#end	
+
+#*  SHOW Search Box, Ends Here *#
+
+
+#* Check for User community/organizational Roles to enable the Dockbar *#
+#set ($enableDockbar = 'false')
+
+#if($permissionChecker.isOmniadmin())
+	#set ($enableDockbar = 'true')
+#end
+
+#set ($roleLocalService = $serviceLocator.findService("com.liferay.portal.service.RoleLocalService"))
+#set ($groupList = $groupLocalService.getGroups(0, $groupLocalService.getGroupsCount()))
+#foreach ($groupItem in $groupList)
+    #set ($roleList = $roleLocalService.getUserGroupRoles($user.getUserId(), $groupItem.getGroupId()))
+    
+    #foreach ($roleItem in $roleList)
+    
+        #if($roleItem.getName()    == 'Organization Administrator')
+            #set ($enableDockbar = 'true')
+        #end
+        #if($roleItem.getName() == 'Organization Owner')
+            #set ($enableDockbar = 'true')
+        #end
+        #if($roleItem.getName() == 'Community Owner')
+            #set ($enableDockbar = 'true')
+        #end
+        #if($roleItem.getName() == 'Community Administrator')
+            #set ($enableDockbar = 'true')
+        #end
+    #end
+#end
+
+#* End of enable the Dockbar Check *#
+
+
+#* Check whether Current Group is Org or not, to display Home Button *#
+
+#set ($isCurrGroupOrg = 'false')
+
+#set ($currentGroup = $groupLocalService.getGroup($theme_display.getScopeGroupId()))
+
+#if($currentGroup.isOrganization())
+	#set ($isCurrGroupOrg = 'true')
+#end
+
+
+

@@ -1,0 +1,76 @@
+<script type="text/javascript" src="/SF311-Portal-theme/js/jquery-1.5.2.min.js"></script>
+
+    <style type="text/css">
+        #container {
+            width: auto;
+            text-align: center;
+            margin: auto;
+        }
+
+        
+        .back
+        {
+            position:absolute;
+            top:0;left:0;    
+        }
+        .wrap
+        {
+            width:550px;
+            height:348px;
+            position:relative;
+            margin:auto;
+            overflow:hidden;
+         }
+         
+            
+        .comment
+        {
+            position:absolute;   
+            width:550px;
+             height:150px;
+            top:100px;
+            left:0px;
+            letter-spacing: -1px;
+            margin-top: 178px;
+            color: white; font: 24px/45px Berlin Sans FB, Sans-Serif; 
+            background: #302226; 
+            padding: 10px;  
+            filter:alpha(opacity=60);
+	        -moz-opacity:0.6;
+	        -khtml-opacity: 0.6;
+	        opacity: 0.6;
+            line-height: 90%    
+            
+
+        }
+            
+    
+    </style>
+    
+    <script type="text/javascript">
+    $(function(){
+    
+        $('.wrap').hover(function(){
+            $(this).children('.comment').stop().css("top", "0px");}
+                        
+            , function(){
+            $(this).children('.comment').stop().animate({"top": '400px'}, 600);});
+    
+    });
+    
+    </script>
+    
+</head>
+<body>
+
+<div id="container">
+    <div class="wrap">
+        <img class="back" src="$Image.getData()" alt="image"/>
+
+        <span class="comment">
+            $MouseOverText.getData()
+        </span>
+    </div>
+</div>
+
+</body>

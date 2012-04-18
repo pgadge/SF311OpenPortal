@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+#parse ($init)
+#set ( $next_year = $the_year+1)
+#if(!$showSearchBox)
+    <style type="text/css">
+    	#banner {
+			position: relative;
+			width: 965px;
+			margin: 0;
+			padding: 0 6px;
+			height: 78px;
+		}
+	</style>
+#end
+
+<html class="#language("lang.dir")" dir="#language("lang.dir")" lang="$w3c_language_id">
+
+<head>
+	<title>$the_title - $company_name</title>
+
+	$theme.include($top_head_include)
+	
+	## check so that expand-collapse function is loaded once
+	#if(!$expandCollapseFlag )
+	     #set ($expandCollapseFlag = 'true')
+		
+		 <script src="/partner-portal-theme/javascript/jquery-1.5.2.min.js" type="text/javascript"></script> 
+	     <script src="/partner-portal-theme/javascript/faq/hidediv.js" type="text/javascript"></script> 
+	     <link href="/partner-portal-theme/css/faq/velocityFAQ.css" rel="stylesheet" type="text/css" />
+		
+	     <script type="text/javascript">
+		 jQuery(function(){jQuery("h3.expand-faq").toggler()});
+	     </script>
+	#end
+	
+</head>
+
+<body class="$css_class">
+
+#if($enableDockbar == 'true')
+	#dockbar()
+#end
+
+<div id="wrapper">
+
+	<header id="banner" role="banner">
+		<hgroup id="heading">
+			
+			
+		</hgroup>
+
+		
+		<div id="utilContainer">
+			#if($is_signed_in)
+	        	<div>
+	        		Welcome! 
+	        		<a href="$my_account_url">$user_name</a>
+	        		<span>|</span>
+	        		<a href="$sign_out_url">Logout</a>
+	        	</div>	        	   	
+		    #else
+		    	<div>
+	    			Welcome! <a href="$sign_in_url">Sign In</a>   
+	    			
+		    	</div>	
+		   #end
+		   
+		  
+		</div> 
+		
+		 <div id="languageBar">
+         	
+        </div>
+	       	
+       
+		<div id="searchDiv">
+			#* Conditional to show/hide search box *#
+	        #if($showSearchBox)
+	        
+				 <input type="text" default_value="Enter keyword(s), a phrase, or product name" value="Enter keyword(s), a phrase, or product name" />
+				 <a href="#">
+					<img src="/partner-portal-theme/images/btn_go.png" alt="GO" width="39" height="21" border="0"/>
+				 </a>
+					 
+			#end
+			#* Conditional to show/hide search box, Ends Here *#
+	
+		</div>
+		
+		
+		<div class="rflt search">		            
+				          
+				          
+	<div style="color:White;font-size:1.1em;padding-right:5px;padding-top:2px;position:absolute;">Search </div> 
+    <form action="http://localhost:8080/web/guest/search" id="cse-search-box" style="width:195px; padding-right:0;padding-top:0;">		
+	<input type="hidden" name="cx" value="000250196670705970437:vsgncjg968o" /> 
+	<input type="hidden" name="cof" value="FORID:10;NB:1" /> 
+	<input type="hidden" name="ie" value="UTF-8" /> 
+	<input value="" name="q" type="text" size="25" style="float:left;left:333px;position: relative; width: 147px;top:118px;"/>&nbsp;&nbsp;
+	<input type="submit" name="sa" value="" style="border:0; background: url('/sf3-theme/images/excelsior/search_btn.png');display:block;height:28px;position:absolute;right:555px;top:117px; width:46px;"/> 
+		
+</form> 
+				          
+ </div>
+
+
+		#if ($update_available_url)
+			<div class="popup-alert-notice">
+				<a class="update-available" href="$update_available_url">#language("updates-are-available-for-liferay")</a>
+			</div>
+		#end
+
+		
+	</header>
+	
+	
+	<div id="content">
+		
+		#if ($selectable)
+			$theme.include($content_include)
+		#else
+			$portletDisplay.recycle()
+
+			$portletDisplay.setTitle($the_title)
+
+			$theme.wrapPortlet("portlet.vm", $content_include)
+		#end
+	</div>
+
+	<footer id="footer" role="contentinfo">
+		    	 
+    	
+    	</span><a href="#">Site Help</a><span>
+    	</span>  <a href="#">Accessibility</a>   <span>
+    	</span>  <a href="#">Translate</a>   <span>
+    	</span>  <a href="#">Contact Us</a></span>
+    	
+	</footer>
+</div>
+
+</body>
+
+$theme.include($bottom_include)
+
+</html>

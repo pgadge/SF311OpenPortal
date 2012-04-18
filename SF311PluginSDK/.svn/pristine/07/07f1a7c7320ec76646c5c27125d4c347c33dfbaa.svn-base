@@ -1,0 +1,390 @@
+/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
+
+body {
+	  background: url("../images/bg_main.png") no-repeat scroll 0 0 #BCBCBC;
+    color: #747474;
+    font-family: Arial,sans-serif;
+}
+
+#wrapper {
+	background: none repeat scroll 0 0 transparent;
+    margin: 12px auto;
+    max-width: 975px;
+    position: relative;
+	background-color: #b4a76c;
+	border: thin solid b
+}
+
+/* Banner */
+#banner {
+	background: url("../images/SFO311/311_banner_no_search.jpg") no-repeat;
+	padding: 0 6px;
+	height: 150px;
+	margin: 8px;
+	top:8px;
+    border: thin solid black;
+    position: relative;
+}
+
+#banner .company-title {
+	float: none;
+	margin: 13px 15px;
+	position: static;
+}
+
+body #banner .logo a {
+	float: left;
+}
+
+/* Portlet */
+
+.portlet {
+	margin: 8px;
+	padding: 3px;
+	text-align: left;
+}
+
+.portlet-topper {
+	
+}
+.portlet-data{
+	margin: 3px;
+	padding-left: 10px;
+    padding-top: 10px;
+	}
+
+.portlet-title {
+     background: url("../images/header_bg_whiteandgray.png") repeat-x scroll left top #4D4D4D;
+    color: #FFFFFF;
+    line-height: 10px;
+    margin: 3px;
+   padding: 8px 0 8px 8px;
+    text-transform: uppercase;
+}
+
+.portlet-topper-toolbar {
+    margin: 0;
+    padding: 2px;
+    position: absolute;
+    right: 3px;
+    text-align: right;
+}
+
+
+.content{
+	padding:12px 5px 8px;
+	margin:8px;
+	}
+
+/* Footer */
+	
+#footer {
+	 font-size: 11px;
+    margin-top: 10px;
+    padding: 10px 6px;
+}
+
+#footer a{	
+	font-weight: bold;
+	margin-left:107px;
+	color: #1A2E50;
+	text-decoration: none;
+}
+
+#footer span {
+	padding: 0 32px;
+}
+
+/* Banner navigation */
+
+#utilContainer{
+    position: relative;
+    top: 120px;
+}
+
+#utilContainer div{
+	color: Bisque;
+    font-size: 12px;
+    position: relative;
+    text-align: right;
+}
+
+#utilContainer div span {
+	margin: 0 4px;
+}
+
+#utilContainer div a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+#utilContainer a img {
+	position: absolute;
+	bottom: 1px;
+	right: 0;
+}
+
+#navigationSearch{
+	left: 400px;
+    position: absolute;
+    top: 118px;
+    height:33px;
+}
+
+/* center navigation bar*/
+
+#navigation{
+	background: url("../images/SFO311/nav_backg_311.jpg") no-repeat scroll 0 0 transparent;
+    height: 30px;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 10px;
+   	overflow: visible;
+    position: relative;
+    z-index:10;    
+}
+	
+	
+#navigation ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#navigation li, #navigation a {
+	display: inline-block;
+}
+
+#navigation li {
+	position: relative;
+	vertical-align: top;
+}
+
+#navigation a {
+	color: #FFF;
+	font-size: 12px;
+	font-weight: bold;
+	margin: 0;
+	padding: 5px 15px 7px;
+	text-decoration: none;
+}
+
+
+#navigation .child-menu a{
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+.site-breadcrumbs ul{
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;	
+}
+
+#navigation .aui-dd-drop a {
+	cursor: move;
+}
+
+#navigation .selected a, #navigation a:hover, #navigation a:focus,
+#navigation .child-menu li a, #navigation .aui-dd-dragging, .lfr-navigation-proxy {
+	background: #313334;
+	color: #FFF;
+	outline: 0;
+}
+
+#navigation li:hover .child-menu {
+	background: #2476a2;
+	display: block;
+	position: absolute;
+	width: 150px;
+	z-index: 200;
+	top:30px;
+	left:0;
+	padding:5px 5px 10px 5px;
+}
+
+#navigation .child-menu {
+	display: none;
+}
+
+#navigation .child-menu li {
+	border-width: 0 0 1px;
+	display: block;
+	float: none;
+	margin: 0;
+	top:-8px;
+	padding-top:3px;
+}
+
+#navigation .child-menu li a {
+	cursor: pointer !important;
+}
+
+#navigation .selected a:hover, 
+#navigation .selected a{
+	background: #FFF url(../images/navigation/tabs_active.png) repeat-x 0 0;
+	color:#222;
+	outline:0 none;
+	text-shadow:none;
+}
+
+#navigation a:hover,
+#navigation a:focus,
+#navigation .aui-dd-dragging  {
+	background: #FFF url(../images/navigation/tabs_hover.png) repeat-x 0 0;
+	color:#224;
+	outline:0 none;
+	text-shadow:none;
+}
+
+#navigation .child-menu .selected a {
+	color: #020509;
+	background: #FFF url(../images/navigation/bullet_selected.png) no-repeat 5px 50%;
+}
+
+#navigation .child-menu li a {
+	color: #FFF;
+	font-size: 11px;
+	font-weight: bold;
+	margin: 1px 0 2px 4px;
+	padding: 1px 10px 1px 15px;
+	text-decoration: none;
+	background:none;
+}
+
+#navigation .child-menu li a:hover {
+	color: #020509;
+	text-decoration: none;
+}
+
+#navigation .child-menu{
+	-moz-border-radius: 0 0 4px 4px;
+	-webkit-border-radius: 0 0 4px 4px;
+}
+
+.ie7 #navigation li:hover .child-menu {
+	left:5px;
+}
+
+ie7. #navigation .selected a{
+	height:30px
+}
+
+.ie7 #navigation a {
+	padding: 4px 15px;
+	height:30px;
+}
+
+.ie7 #navigation li:hover .child-menu a{
+	height:16px;	
+}
+
+.ie7 #navigation ul {
+	padding: 0px;
+}
+
+.ie7 #navigation li{
+	padding-left:3px;	
+}
+/*
+.ie7 .site-breadcrumbs ul {
+	background-color:black;
+	border:0 none;
+}
+
+.ie7 .aui-helper-hidden.site-breadcrumbs ul{
+	background:url("../images/navigation/breadcrumb_background.png") repeat-x scroll 0 0 #FFFFFF;
+	border:0 none;
+}
+*/
+
+.ie6 #navigation li, .ie7 #navigation li, .ie6 #navigation a, .ie7 #navigation a {
+	display: inline;
+	zoom: 1;
+	z-index: 200;
+}
+
+.ie6 #navigation li.hover .child-menu {
+	display: block;
+	position: absolute;
+	width: 200px;
+	z-index: 200;
+	top:33px;
+	left:-5px;
+	padding:5;
+}
+
+
+/*Search Button */
+
+#SearchButton {
+	background: url("../images/search_gobt.gif") no-repeat;
+	border: 0 none;
+	width: 26px;
+	height:25px;
+}
+	
+	
+/* Sf Main Header */
+	
+#sf_header {
+    height: 28px;
+    margin: auto auto 5px;
+    max-width: 974px;
+}
+
+#sf_header .sf_header_logo {
+    background: url("http://www6.sfgov.org/ftp/sfsoap/images/global/Bheader_left.gif") no-repeat scroll left top transparent;
+}
+
+#sf_header .sf_header_logo a {
+    display: block;
+    height: 28px;
+    max-width: 147px;
+}
+
+#sf_header .sf_header_logo a span {
+    display: none;
+}
+
+#sf_header .sf_header_nav {
+    background: url("http://www6.sfgov.org/ftp/sfsoap/images/global/Bheader_mid.gif") repeat-x scroll left top transparent;
+    display: block;
+    height: 28px;
+    margin-left: 147px;
+    margin-top: -28px;
+    max-width: 819px;
+    padding-top: 6px;
+}
+
+#sf_header .sf_header_end {
+    background: url("http://www6.sfgov.org/ftp/sfsoap/images/global/Bheader_right.gif") no-repeat scroll right top transparent;
+    height: 28px;
+    margin-left: 964px;
+    margin-top: -44px;
+    max-width: 8px;
+}
+
+#sf_header .sf_header_nav li{
+    display: inline;
+    overflow: hidden;
+    margin-top: 7px;
+}
+
+#sf_header .sf_header_nav li a {
+	text-decoration:none;
+	color:blue;
+	font-size: 12px;
+    font-weight: bold;
+    padding-left:15px;
+    padding-right:15px;
+    padding-top:10px;
+	}
+
+body.portlet {
+	border: thin solid black;
+}
+
+/* Layout CSS */
+.portlet-column-content {
+	padding: 0px;
+}
